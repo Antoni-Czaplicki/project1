@@ -60,5 +60,28 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);">
-</a></div></div></div>
+</a>
+<script>
+    function getMobileOperatingSystem() {
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    // Windows Phone must come first because its UA also contains "Android"
+    if (/windows phone/i.test(userAgent)) {
+        return "Windows Phone";
+    }
+
+    if (/android/i.test(userAgent)) {
+        return "Android";
+    }
+
+    // iOS detection from: http://stackoverflow.com/a/9039885/177710
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        return "iOS";
+    }
+
+    return "unknown";
+}
+console.log(getMobileOperatingSystem())
+</script>
+<model-viewer ar="" ar-modes="scene-viewer webxr quick-look" alt="A 3D model of an astronaut." src="https://github.com/Antoni-Czaplicki/project1/raw/main/e.gltf"></model-viewer></div></div></div>
     </section></body></html>
